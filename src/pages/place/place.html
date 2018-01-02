@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onDelete()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      {{ place.title }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img [src]="place.imageUrl">
+  <ion-grid text-center padding-left padding-right>
+    <ion-row>
+      <ion-col>
+        <h3>Category</h3>
+        <p>{{ place.category }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>Description:</h3>
+        <p>{{ place.description }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    <sebm-google-map
+      [latitude]="place.location.lat"
+      [longitude]="place.location.lng"
+      [zoom]="16">
+      <sebm-google-map-marker
+      [latitude]="place.location.lat"
+      [longitude]="place.location.lng"></sebm-google-map-marker>
+    </sebm-google-map>
+</ion-content>
